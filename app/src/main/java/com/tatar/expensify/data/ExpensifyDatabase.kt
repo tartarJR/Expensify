@@ -9,11 +9,12 @@ import androidx.room.RoomDatabase
     Increase the version by one anytime the schema changes, otherwise app won't work
     The property exportSchema saves the schema of the db to a folder to provide a version history for db, it is set to true by default
 */
-@Database(entities = [Expense::class], version = 1, exportSchema = false)
+@Database(entities = [Expense::class, ExpenseType::class], version = 1, exportSchema = false)
 abstract class ExpensifyDatabase : RoomDatabase() {
 
     // Declare all DAO interfaces associated with the entities
     abstract val expenseDao: ExpenseDao
+    abstract val expenseTypeDao: ExpenseTypeDao
 
     companion object {
 
