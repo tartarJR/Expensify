@@ -1,9 +1,13 @@
-package com.tatar.expensify.data
+package com.tatar.expensify.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.tatar.expensify.data.local.expense.Expense
+import com.tatar.expensify.data.local.expense.ExpenseDao
+import com.tatar.expensify.data.local.expensetype.ExpenseType
+import com.tatar.expensify.data.local.expensetype.ExpenseTypeDao
 
 /*
     Increase the version by one anytime the schema changes, otherwise app won't work
@@ -35,7 +39,8 @@ abstract class ExpensifyDatabase : RoomDatabase() {
             */
             synchronized(this) {
                 // Smart cast is only available to local variables, so copy INSTANCE(class variable) value to local variable
-                var instance = INSTANCE
+                var instance =
+                    INSTANCE
 
                 if (instance == null) {
                     instance = Room.databaseBuilder(

@@ -1,10 +1,12 @@
-package com.tatar.expensify.data
+package com.tatar.expensify.data.local.expensetype
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.tatar.expensify.data.local.base.BaseDao
 
 @Dao
-interface ExpenseTypeDao : BaseDao<ExpenseType> {
+interface ExpenseTypeDao :
+    BaseDao<ExpenseType> {
 
     @Query("SELECT * FROM expense_types_table")
     fun getAllExpenseTypes(): LiveData<List<ExpenseType>> // TODO nullable?

@@ -1,4 +1,4 @@
-package com.tatar.expensify.data
+package com.tatar.expensify.data.local.base
 
 import androidx.room.ColumnInfo
 import androidx.room.PrimaryKey

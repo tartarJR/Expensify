@@ -1,11 +1,13 @@
-package com.tatar.expensify.data
+package com.tatar.expensify.data.local.expense
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.tatar.expensify.data.local.base.BaseDao
 
 @Dao
-interface ExpenseDao : BaseDao<Expense> {
+interface ExpenseDao :
+    BaseDao<Expense> {
 
     @Query("SELECT * FROM expenses_table ORDER BY id DESC")
     fun getAllExpenses(): LiveData<List<Expense>> // TODO nullable?

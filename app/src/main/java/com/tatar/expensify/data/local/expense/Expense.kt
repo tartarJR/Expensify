@@ -1,8 +1,10 @@
-package com.tatar.expensify.data
+package com.tatar.expensify.data.local.expense
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import com.tatar.expensify.data.local.base.BaseEntity
+import com.tatar.expensify.data.local.expensetype.ExpenseType
 
 @Entity(
     tableName = "expenses_table", foreignKeys = [ForeignKey(

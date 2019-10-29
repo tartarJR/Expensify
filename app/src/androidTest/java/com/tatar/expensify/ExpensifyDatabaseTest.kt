@@ -3,7 +3,11 @@ package com.tatar.expensify
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.tatar.expensify.data.*
+import com.tatar.expensify.data.local.ExpensifyDatabase
+import com.tatar.expensify.data.local.expense.Expense
+import com.tatar.expensify.data.local.expense.ExpenseDao
+import com.tatar.expensify.data.local.expensetype.ExpenseType
+import com.tatar.expensify.data.local.expensetype.ExpenseTypeDao
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -50,7 +54,11 @@ class ExpensifyDatabaseTest {
     }
 
     private fun provideExpense(): Expense {
-        return Expense(amount = 10.2, expenseTypeId = 1, explanation = "")
+        return Expense(
+            amount = 10.2,
+            expenseTypeId = 1,
+            explanation = ""
+        )
     }
 
     private fun provideExpenseType(): ExpenseType {
