@@ -1,24 +1,62 @@
 package com.tatar.expensify
 
-import androidx.test.platform.app.InstrumentationRegistry
+import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import androidx.test.platform.app.InstrumentationRegistry
+import com.tatar.expensify.data.*
+import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
-
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ExpensifyDatabaseTest {
+
+    private lateinit var expenseDao: ExpenseDao
+    private lateinit var expenseTypeDao: ExpenseTypeDao
+    private lateinit var expensifyDatabase: ExpensifyDatabase
+
+    @Before
+    fun createExpensifyDatabase() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+
+        // In-memory db for testing purposes only, will be destroyed after test execution
+        expensifyDatabase = Room.inMemoryDatabaseBuilder(context, ExpensifyDatabase::class.java)
+            .allowMainThreadQueries() // Allowed only for testing
+            .build()
+
+        expenseDao = expensifyDatabase.expenseDao
+        expenseTypeDao = expensifyDatabase.expenseTypeDao
+
+        insertExpenseType(provideExpenseType())
+    }
+
+    @After
+    fun closeExpensifyDatabase() {
+        expensifyDatabase.close()
+    }
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.tatar.expensify", appContext.packageName)
+    fun insert_Expense_Success() {
+        val expenseToInsert = provideExpense()
+        expenseDao.insert(expenseToInsert)
+        val lastInsertedExpense = expenseDao.getLastExpense()
+        assertEquals(expenseToInsert.amount, lastInsertedExpense?.amount)
+    }
+
+    private fun insertExpenseType(expenseType: ExpenseType) {
+        expenseTypeDao.insert(expenseType)
+    }
+
+    private fun provideExpense(): Expense {
+        return Expense(amount = 10.2, expenseTypeId = 1, explanation = "")
+    }
+
+    private fun provideExpenseType(): ExpenseType {
+        return ExpenseType(
+            name = "sample expense type",
+            explanation = "sample expense type explanation"
+        )
     }
 }
