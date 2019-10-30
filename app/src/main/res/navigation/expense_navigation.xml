@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/expense_navigation"
+    app:startDestination="@id/expenses_destination">
+
+    <fragment
+        android:id="@+id/expenses_destination"
+        android:name="com.tatar.expensify.ui.expense.DisplayExpensesFragment"
+        android:label="fragment_expenses"
+        tools:layout="@layout/fragment_display_expenses" >
+        <action
+            android:id="@+id/action_displayExpensesFragment_to_addExpenseFragment"
+            app:destination="@id/add_expense_destination"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/expenses_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_expense_destination"
+        android:name="com.tatar.expensify.ui.expense.AddExpenseFragment"
+        android:label="fragment_add_expense"
+        tools:layout="@layout/fragment_add_expense" >
+        <action
+            android:id="@+id/action_add_expense_destination_to_addExpenseTypeFragment"
+            app:destination="@id/add_expense_type_destination"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/add_expense_destination" />
+        <action
+            android:id="@+id/action_add_expense_destination_to_expenses_destination"
+            app:destination="@id/expenses_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_expense_type_destination"
+        android:name="com.tatar.expensify.ui.expense.AddExpenseTypeFragment"
+        android:label="fragment_add_expense_type"
+        tools:layout="@layout/fragment_add_expense_type" >
+        <action
+            android:id="@+id/action_add_expense_type_destination_to_add_expense_destination"
+            app:destination="@id/add_expense_destination" />
+    </fragment>
+</navigation>
