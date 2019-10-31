@@ -1,6 +1,6 @@
 package com.tatar.expensify
 
-import com.tatar.expensify.di.DaggerAppComponent
+import com.tatar.expensify.di.app.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
