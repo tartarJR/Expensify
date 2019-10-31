@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/expenses_destination"
-        android:name="com.tatar.expensify.ui.expense.DisplayExpensesFragment"
+        android:name="com.tatar.expensify.ui.expense.display.ExpensesFragment"
         android:label="fragment_expenses"
         tools:layout="@layout/fragment_display_expenses" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_expense_destination"
-        android:name="com.tatar.expensify.ui.expense.AddExpenseFragment"
+        android:name="com.tatar.expensify.ui.expense.add.AddExpenseFragment"
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_expense_type_destination"
-        android:name="com.tatar.expensify.ui.expense.AddExpenseTypeFragment"
+        android:name="com.tatar.expensify.ui.expense.type.AddExpenseTypeFragment"
         android:label="fragment_add_expense_type"
         tools:layout="@layout/fragment_add_expense_type" >
         <action

@@ -1,4 +1,4 @@
-package com.tatar.expensify.ui.expense
+package com.tatar.expensify.ui.expense.type
 
 
 import android.os.Bundle
@@ -9,14 +9,14 @@ import android.view.ViewGroup
 
 import com.tatar.expensify.R
 
-class AddExpenseFragment : Fragment() {
+class AddExpenseTypeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_expense, container, false)
+        return inflater.inflate(R.layout.fragment_add_expense_type, container, false)
     }
 
 
