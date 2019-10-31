@@ -6,6 +6,7 @@ buildscript {
         room_version = "2.2.1"
         navigation_version = "1.0.0"
         dagger_version = "2.25"
+        glide_version = "4.10.0"
     }
 
     repositories {
