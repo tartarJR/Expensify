@@ -21,7 +21,8 @@ import dagger.android.support.AndroidSupportInjectionModule
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
         DatabaseModule::class,
-        GlideModule::class]
+        GlideModule::class
+    ]
 )
 interface AppComponent : AndroidInjector<ExpensifyApp> {
 
