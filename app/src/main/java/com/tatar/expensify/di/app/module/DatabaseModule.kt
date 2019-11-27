@@ -11,21 +11,19 @@ import dagger.Provides
 @Module
 object DatabaseModule {
 
-    @JvmStatic
+    //@JvmStatic no need to add this annotation anymore as Dagger 2 will be identifying these methods as static
     @PerApp
     @Provides
     internal fun provideExpensifyDatabase(context: Context): ExpensifyDatabase {
         return ExpensifyDatabase.getInstance(context)
     }
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideExpenseDao(expensifyDatabase: ExpensifyDatabase): ExpenseDao {
         return expensifyDatabase.expenseDao
     }
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideExpenseTypeDao(expensifyDatabase: ExpensifyDatabase): ExpenseTypeDao {

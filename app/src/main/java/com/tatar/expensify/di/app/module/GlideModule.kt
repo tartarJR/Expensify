@@ -14,7 +14,6 @@ import dagger.Provides
 @Module
 object GlideModule {
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideRequestOptions(): RequestOptions {
@@ -23,7 +22,6 @@ object GlideModule {
             .error(R.drawable.sad_face_background)
     }
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideGlideInstance(
@@ -36,7 +34,6 @@ object GlideModule {
     }
 
     // Just and example
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideAppDrawable(application: Application): Drawable {

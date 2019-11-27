@@ -13,27 +13,29 @@ import java.io.File
 @Module
 object NetworkModule {
 
-    @JvmStatic
     @PerApp
     @Provides
-    internal fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor, cache: Cache): OkHttpClient {
+    internal fun provideOkHttpClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        cache: Cache
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .cache(cache)
             .build()
     }
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        val interceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { msg -> Timber.i(msg) })
+        val interceptor = HttpLoggingInterceptor(
+            HttpLoggingInterceptor.Logger { msg -> Timber.i(msg) }
+        )
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
 
         return interceptor
     }
 
-    @JvmStatic
     @PerApp
     @Provides
     internal fun provideCache(cacheFile: File): Cache {
