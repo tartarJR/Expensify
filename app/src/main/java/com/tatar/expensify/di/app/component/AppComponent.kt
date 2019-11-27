@@ -1,6 +1,5 @@
 package com.tatar.expensify.di.app.component
 
-import android.app.Application
 import android.content.Context
 import com.tatar.expensify.data.local.expense.ExpenseDao
 import com.tatar.expensify.data.local.expensetype.ExpenseTypeDao

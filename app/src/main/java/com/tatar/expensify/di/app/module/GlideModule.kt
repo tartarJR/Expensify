@@ -33,7 +33,7 @@ object GlideModule {
             .setDefaultRequestOptions(requestOptions)
     }
 
-    // Just and example
+    // Just an example
     @PerApp
     @Provides
     internal fun provideAppDrawable(application: Application): Drawable {
