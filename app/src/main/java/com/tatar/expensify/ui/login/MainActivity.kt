@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun provideDependencies() {
         DaggerExpenseComponent.builder()
+            .binInt(1)
             .appComponent((application as ExpensifyApp).appComponent())
             .build()
             .inject(this)
