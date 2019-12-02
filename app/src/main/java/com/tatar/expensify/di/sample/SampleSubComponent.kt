@@ -9,15 +9,19 @@ import dagger.Subcomponent
 interface SampleSubComponent {
     fun inject(sampleActivity: SampleActivity)
 
-    @Subcomponent.Builder
+    /*@Subcomponent.Builder
     interface Builder {
 
         @BindsInstance
         fun bindFirstInt(@FirstInt firstInt: Int): Builder
 
-        @BindsInstance
-        fun bindSecondInt(@SecondInt secondInt: Int): Builder
+        fun bindSecondInt(@BindsInstance @SecondInt secondInt: Int): Builder
 
         fun build(): SampleSubComponent
+    }*/
+
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(@BindsInstance @FirstInt firstInt: Int, @BindsInstance @SecondInt secondInt: Int): SampleSubComponent
     }
 }

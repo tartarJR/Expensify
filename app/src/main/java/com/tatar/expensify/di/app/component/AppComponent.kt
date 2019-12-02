@@ -22,7 +22,8 @@ import dagger.Component
 )
 interface AppComponent {
 
-    fun getSampleSubComponentBuilder(): SampleSubComponent.Builder
+    //fun getSampleSubComponentBuilder(): SampleSubComponent.Builder
+    fun getSampleSubComponentFactory(): SampleSubComponent.Factory
 
     // TODO provide app level dependencies here
     //fun expenseDao(): ExpenseDao

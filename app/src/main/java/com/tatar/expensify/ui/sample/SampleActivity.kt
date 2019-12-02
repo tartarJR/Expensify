@@ -49,12 +49,16 @@ class SampleActivity : AppCompatActivity() {
     }
 
     private fun provideDependencies() {
-        (application as ExpensifyApp)
+        /*(application as ExpensifyApp)
             .appComponent()
             .getSampleSubComponentBuilder()
             .bindFirstInt(10)
             .bindSecondInt(10)
             .build()
-            .inject(this)
+            .inject(this)*/
+
+        (application as ExpensifyApp)
+            .appComponent()
+            .getSampleSubComponentFactory().create(10, 10)
     }
 }
