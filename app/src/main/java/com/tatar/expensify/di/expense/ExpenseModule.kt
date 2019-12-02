@@ -1,16 +1,14 @@
 package com.tatar.expensify.di.expense
 
-import com.tatar.expensify.data.local.expensetype.ExpenseTypeDao
-import com.tatar.expensify.repository.FakeRepository
+import com.tatar.expensify.usecase.DopeUseCase
+import com.tatar.expensify.usecase.UseCase
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-object ExpenseModule {
+abstract class ExpenseModule {
 
     @PerExpense
-    @Provides
-    fun provideFakeRepository(expenseTypeDao: ExpenseTypeDao): FakeRepository {
-        return FakeRepository(expenseTypeDao)
-    }
+    @Binds
+    abstract fun provideFakeUseCase(dopeUseCase: DopeUseCase): UseCase
 }

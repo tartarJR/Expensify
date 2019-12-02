@@ -8,14 +8,10 @@ import com.tatar.expensify.ExpensifyApp
 import com.tatar.expensify.R
 import com.tatar.expensify.di.expense.DaggerExpenseComponent
 import com.tatar.expensify.repository.DopeRepository
-import com.tatar.expensify.repository.FakeRepository
 import com.tatar.expensify.ui.sample.SampleActivity
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-
-    @Inject
-    lateinit var fakeRepository: FakeRepository
 
     @Inject
     lateinit var dopeRepository: DopeRepository
@@ -30,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     // TODO Facebook login will be implemented
     fun fakeLoginClick(view: View) {
 
-        fakeRepository.fakeFunction()
         dopeRepository.fakeFunction()
 
         val intent = Intent(this, SampleActivity::class.java)
