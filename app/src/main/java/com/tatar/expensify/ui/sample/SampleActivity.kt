@@ -51,7 +51,10 @@ class SampleActivity : AppCompatActivity() {
     private fun provideDependencies() {
         (application as ExpensifyApp)
             .appComponent()
-            .getSampleSubComponent()
+            .getSampleSubComponentBuilder()
+            .bindFirstInt(10)
+            .bindSecondInt(10)
+            .build()
             .inject(this)
     }
 }
