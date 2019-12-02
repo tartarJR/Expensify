@@ -1,16 +1,17 @@
 package com.tatar.expensify.di.sample
 
-import com.tatar.expensify.data.local.expense.ExpenseDao
 import com.tatar.expensify.repository.AnotherFakeRepository
+import com.tatar.expensify.usecase.UseCase
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
 object SampleModule {
 
     @PerSample
     @Provides
-    fun provideAnotherFakeRepository(expenseDao: ExpenseDao): AnotherFakeRepository {
-        return AnotherFakeRepository(expenseDao)
+    fun provideAnotherFakeRepository(@Named("AnotherFakeUseCase") useCase: UseCase): AnotherFakeRepository {
+        return AnotherFakeRepository(useCase)
     }
 }
